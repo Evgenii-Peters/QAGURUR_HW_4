@@ -25,9 +25,9 @@ def test_registration_form(browser_settings):
     #browser.element('[id="uploadPicture"]').set_value('C:/Users/evgen/PycharmProjects/QAGURUR_HW_22')
     browser.element('[id = "currentAddress"]').should(be.blank).type('exemple street')
     browser.element('[id = "state"]').click()
-    browser.all('div[class*="option"]').element_by(have.text('Haryana')).click()
+    browser.element('[id="react-select-3-input"]').type('Haryana').press_enter()
     browser.element('[id = "city"]').click()
-    browser.all('div[class*="option"]').element_by(have.text('Panipat')).click()
+    browser.element('[id="react-select-4-input"]').type('Panipat').press_enter()
     browser.element('[id = "submit"]').click()
     #Проверка что форма заполнена
     browser.element('[id="example-modal-sizes-title-lg"]').should(have.text('Thanks for submitting the form'))
