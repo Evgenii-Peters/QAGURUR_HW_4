@@ -32,18 +32,17 @@ def test_registration_form(browser_settings):
     #Проверка что форма заполнена
     browser.element('[id="example-modal-sizes-title-lg"]').should(have.text('Thanks for submitting the form'))
     #не уверен насчет этой части проверки поэтому добавил выше проверку просто  что сабмит прошел успешно
-    #browser.all('td').should(have.text([
-    #    'Student Name', 'Evgenii Peters',
-    #    'Student Email', 'example@mail.ru',
-    #    'Gender', 'Male',
-    #    'Mobile', '8800555353',
-    #    'Date of Birth', '22 June,1999',
-    #    'Subjects', ' ',
-    #    'Hobbies', 'Reading',
-    #    'Picture', 'example.png',
-    #    'Address', 'exemple street',
-    #    'State and City', 'Haryana Panipat'
-    #]))
+    browser.all('td').should(have.text([
+        'Student Name', 'Evgenii Peters',
+        'Student Email', 'example@mail.ru',
+        'Gender', 'Male',
+        'Mobile', '8800555353',
+        'Date of Birth', '22 June,1999',
+        'Subjects', 'Geometry',
+        'Hobbies', 'Reading',
+        'Picture', 'example.png',
+        'Address', 'exemple street',
+    ]))
 
 
 
