@@ -19,7 +19,7 @@ def test_registration_form(browser_settings):
     browser.element('[class="react-datepicker__month-select"]').element('option[value="5"]').click()
     browser.element('[class="react-datepicker__year-select"]').element('option[value="1999"]').click()
     browser.element('[class="react-datepicker__day react-datepicker__day--022"]').click()
-    browser.element('[id="subjectsInput"]').type('Geometry')
+    browser.element('[id="subjectsInput"]').type('Biology').press_enter()
     browser.element('label[for="hobbies-checkbox-2"]').click()
     browser.element('[id="uploadPicture"]').set_value(os.path.abspath('example.png'))
     #browser.element('[id="uploadPicture"]').set_value('C:/Users/evgen/PycharmProjects/QAGURUR_HW_22')
@@ -31,21 +31,21 @@ def test_registration_form(browser_settings):
     browser.element('[id = "submit"]').click()
     #Проверка что форма заполнена
     browser.element('[id="example-modal-sizes-title-lg"]').should(have.text('Thanks for submitting the form'))
-    #не уверен насчет этой части проверки поэтому добавил выше проверку просто  что сабмит прошел успешно
-    browser.all('td').should(have.text([
-        'Student Name', 'Evgenii Peters',
-        'Student Email', 'example@mail.ru',
-        'Gender', 'Male',
-        'Mobile', '8800555353',
-        'Date of Birth', '22 June,1999',
-        'Subjects', 'Geometry',
-        'Hobbies', 'Reading',
-        'Picture', 'example.png',
-        'Address', 'exemple street',
-    ]))
-
-
-
+    browser.all('tr').should(
+        have.texts(
+            'Label Values',
+            'Student Name Evgenii Peters',
+            'Student Email example@mail.ru',
+            'Gender Male',
+            'Mobile 8800555353',
+            'Date of Birth 22 June,1999',
+            'Subjects Biology',
+            'Hobbies Reading',
+            'Picture example.png',
+            'Address exemple street',
+            'State and City Haryana Panipat'
+        )
+    )
 
 
 
